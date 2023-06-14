@@ -1,0 +1,14 @@
+<ng-container *ngIf="vm$ | async; let vm">
+  <div class="list-container" cdkDropListGroup>
+    <app-list-drag-and-drop *ngFor="let list of vm.lists" [list]="list">
+    </app-list-drag-and-drop>
+
+    <app-generic-expansion-input
+      [labelProperty]="'Add List'"
+      (inputCreated)="createList($event)"
+    >
+
+    </app-generic-expansion-input>
+  </div>
+
+</ng-container>
