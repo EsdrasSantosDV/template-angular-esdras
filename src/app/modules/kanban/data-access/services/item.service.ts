@@ -6,6 +6,8 @@ import {ICreateListPayload} from "../request/icreate-list-payload";
 import {Item} from "../models/item";
 import {ICreateItemPayload} from "../request/icreate-item-payload";
 import {IUpdateOrderItemPayload} from "../request/iupdate-order-item.payload";
+import {environment} from "../../../../../environments/environment.development";
+import {DataGenericServiceService} from "../../../../shared/modules/http-module/data-generic-service.service";
 
 
 @Injectable({
@@ -13,23 +15,22 @@ import {IUpdateOrderItemPayload} from "../request/iupdate-order-item.payload";
 })
 export class ItemService{
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly data: DataGenericServiceService) {}
 
-  baseUrl = 'item';
+  urlService = 'item';
 
 
 
 
   addItem(payload:ICreateItemPayload):Observable<Item>{
-    return this.http.post<Item>('http://localhost:3000/'+this.baseUrl,payload);
+    return this.data.add<Item,ICreateItemPayload>(this.urlService,payload);
   }
 
 
   updatedItemOrder(
     payload:IUpdateOrderItemPayload
   ):Observable<Item>{
-
-    return this.http.patch<Item>('http://localhost:3000/'+this.baseUrl+`/change-order/${payload.id}`,payload);
+    return this.data.patch<Item,IUpdateOrderItemPayload>(this.urlService+`/change-order/${payload.id}`,payload);
 
   }
 

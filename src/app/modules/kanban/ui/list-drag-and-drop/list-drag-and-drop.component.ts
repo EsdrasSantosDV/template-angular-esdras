@@ -36,21 +36,13 @@ export class ListDragAndDropComponent{
   }
 
   dropMultiList(event: CdkDragDrop<Item[]>) {
-
-
-    const currentIndex=event.currentIndex;
-
-    const ItemDropped=event.previousContainer.data[event.previousIndex];
-
-
     const payload:IUpdateOrderItemPayload={
-      id:ItemDropped?.id,
+      id:event.previousContainer.data[event.previousIndex]?.id,
       currentOrder:event.previousIndex,
       targetOrder:event.currentIndex,
-      targetListId:event.container.data[0]?.listId,
+      targetListId:this.list.id,
       currentListId:event.previousContainer.data[0]?.listId,
     }
-    console.log(payload);
     this.kanbanComponentStore.updatedItemOrder(payload);
     if (event.previousContainer == event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
