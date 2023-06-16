@@ -10,20 +10,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatSortModule} from "@angular/material/sort";
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
-import {MatRadioModule} from "@angular/material/radio";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatStepperModule} from "@angular/material/stepper";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {DragDropModule} from "@angular/cdk/drag-drop";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {MatChipsModule} from "@angular/material/chips";
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -45,9 +44,10 @@ import {MatChipsModule} from "@angular/material/chips";
     DragDropModule,
     MatDialogModule,
     MatChipsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule,
   ],
-  exports:[
+  exports: [
     DragDropModule,
     MatInputModule,
     MatCardModule,
@@ -72,6 +72,6 @@ import {MatChipsModule} from "@angular/material/chips";
     MatRadioModule,
     MatCheckboxModule,
     MatStepperModule,
-  ]
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}
