@@ -1,18 +1,17 @@
+<mat-expansion-panel hideToggle class="max-tam">
+  <ng-container> </ng-container>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="title">
+      {{ item?.titleItem }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-  <mat-expansion-panel hideToggle class="max-tam">
-    <ng-container> </ng-container>
-    <mat-expansion-panel-header>
-      <mat-panel-title class="title">
-        {{ item?.titleItem }}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <div class="icons-task">
-      <button mat-icon-button (click)="editTask()">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </mat-expansion-panel>
+  <div class="icons-task">
+    <button mat-icon-button (click)="editTask()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-expansion-panel>

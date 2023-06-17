@@ -152,6 +152,10 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
   );
 
   handleError(error: HttpErrorResponse) {
+    this.patchState((state) => ({
+      ...state,
+      loading: false,
+    }));
     this.alertService.warning(error.error.message);
   }
 }

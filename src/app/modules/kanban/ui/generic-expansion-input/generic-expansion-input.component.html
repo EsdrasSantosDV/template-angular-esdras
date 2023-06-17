@@ -1,17 +1,12 @@
 <mat-expansion-panel hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <mat-icon>add</mat-icon> {{labelProperty}}
+      <mat-icon>add</mat-icon> {{ labelProperty }}
     </mat-panel-title>
   </mat-expansion-panel-header>
   <form class="container" [formGroup]="formInput">
     <mat-form-field appearance="outline">
-      <input
-        matInput
-        type="text"
-        formControlName="inputGeneric"
-      />
-
+      <input matInput type="text" formControlName="inputGeneric" />
     </mat-form-field>
     <button
       [disabled]="!this.formInput.valid"
@@ -19,8 +14,7 @@
       mat-raised-button
       color="primary"
     >
-      {{labelProperty}}
+      {{ labelProperty }}
     </button>
   </form>
-
 </mat-expansion-panel>
