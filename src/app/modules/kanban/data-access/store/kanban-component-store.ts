@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { List } from '../models/list';
 import { ListService } from '../services/list.service';
-import { Observable, switchMap } from 'rxjs';
+import { concatMap, Observable, switchMap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ICreateListPayload } from '../request/icreate-list-payload';
 import { ItemService } from '../services/item.service';
@@ -128,7 +128,7 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
   updatedItemOrder = this.effect(
     (IUpdateOrderItemPayload$: Observable<IUpdateOrderItemPayload>) =>
       IUpdateOrderItemPayload$.pipe(
-        switchMap(
+        concatMap(
           (IUpdateOrderItemPayload) => (
             this.patchState({ loading: true }),
             this.itemService.updatedItemOrder(IUpdateOrderItemPayload).pipe(
