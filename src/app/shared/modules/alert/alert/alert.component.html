@@ -1,0 +1,21 @@
+<div class="snackbar" >
+  <div
+    [ngClass]="typeMessageStyles"
+    class="align-snack"
+  >
+    <mat-icon class="icon">
+      {{ getIconType() }}
+    </mat-icon>
+  </div>
+  <div
+    class="full-width div-message"
+  >
+    <div class="full-width content" >
+      <span class="bold"> {{ MessageTitle }}</span>
+      <button mat-icon-button (click)="closeSnackBar()" >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <span class="text-message">{{ data.message }}</span>
+  </div>
+</div>

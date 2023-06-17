@@ -9,6 +9,7 @@ import { ItemService } from '../services/item.service';
 import { ICreateItemPayload } from '../request/icreate-item-payload';
 import { IUpdateOrderItemPayload } from '../request/iupdate-order-item.payload';
 import { Item } from '../models/item';
+import { AlertService } from '../../../../shared/modules/alert/services/alert.service';
 
 export interface KanbanState {
   lists: List[];
@@ -24,7 +25,8 @@ export const initialState: KanbanState = {
 export class KanbanComponentStore extends ComponentStore<KanbanState> {
   constructor(
     private readonly listService: ListService,
-    private readonly itemService: ItemService
+    private readonly itemService: ItemService,
+    private readonly alertService: AlertService
   ) {
     super(initialState);
   }
@@ -79,7 +81,7 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
                   loading: false,
                 });
               },
-              (error: HttpErrorResponse) => console.log(error)
+              (error: HttpErrorResponse) => this.handleError(error)
             )
           )
         )
@@ -101,7 +103,7 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
                   loading: false,
                 }));
               },
-              (error: HttpErrorResponse) => console.log(error)
+              (error: HttpErrorResponse) => this.handleError(error)
             )
           )
         )
@@ -119,7 +121,7 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
               (newItem) => {
                 this.updaterItemAddList(newItem);
               },
-              (error: HttpErrorResponse) => console.log(error)
+              (error: HttpErrorResponse) => this.handleError(error)
             )
           )
         )
@@ -141,11 +143,15 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
                     loading: false,
                   }));
                 },
-                (error: HttpErrorResponse) => console.log(error)
+                (error: HttpErrorResponse) => this.handleError(error)
               )
             )
           )
         )
       )
   );
+
+  handleError(error: HttpErrorResponse) {
+    this.alertService.warning(error.error.message);
+  }
 }

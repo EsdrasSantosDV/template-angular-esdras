@@ -1,0 +1,71 @@
+.snackbar {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  margin: -1rem;
+  .align-snack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.div-message {
+  display: flex;
+  justify-content:start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 8px;
+  padding-left: 15px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  color: #fff !important;
+  padding: 20px;
+}
+
+.icon-success {
+  background-color: rgb(14, 148, 14);
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icon-error {
+  background-color: red;
+}
+
+.icon-warning {
+  background-color: #d8d013;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.close-button {
+  cursor: pointer;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+::ng-deep .mat-snack-bar-container {
+  padding: 0 !important;
+}
+
+.text-message {
+  margin-top: 10px;
+  white-space: pre-line;
+  width: 260px;
+}
+
