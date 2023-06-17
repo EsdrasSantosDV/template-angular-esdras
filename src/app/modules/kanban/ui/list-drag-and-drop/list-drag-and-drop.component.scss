@@ -17,12 +17,22 @@
 
 .example-list {
   border: solid 1px #ccc;
+  max-height: 34rem;
   min-height: 60px;
   background: white;
   border-radius: 4px;
-  overflow: hidden;
-  display: block;
-  padding: 10px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap:1rem;
 }
 
 

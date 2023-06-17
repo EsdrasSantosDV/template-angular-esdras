@@ -17,10 +17,12 @@
       [cdkDropListData]="this.list.items"
       (cdkDropListDropped)="dropMultiList($event)"
     >
-      <div *ngFor="let item of this.list.items" cdkDrag>
-        <div class="drop-placeholder" *cdkDragPlaceholder></div>
-        <app-card-item [item]="item"> </app-card-item>
-      </div>
+      <ng-container *ngFor="let item of this.list.items">
+        <div class="list-container" cdkDrag>
+          <div class="drop-placeholder" *cdkDragPlaceholder></div>
+          <app-card-item [item]="item"> </app-card-item>
+        </div>
+      </ng-container>
     </div>
 
     <app-generic-expansion-input

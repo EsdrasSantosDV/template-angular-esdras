@@ -1,24 +1,10 @@
 
-.example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  width: 100%;
-  cursor: move;
-  background: white;
-  font-size: 14px;
-}
 
-.max-tam{
+.max-tam {
   width: 100%;
 }
 
-.title{
+.title {
   overflow: hidden;
   flex-basis: 100%;
   display: block;
@@ -27,7 +13,8 @@
   width: 100%;
 }
 
-.icons-task
-{
-  width: 5%;  display: flex; justify-content: flex-end;
+.icons-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

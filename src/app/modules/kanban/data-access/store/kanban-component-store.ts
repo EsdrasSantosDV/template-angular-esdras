@@ -15,16 +15,18 @@ export interface KanbanState {
   loading: boolean;
 }
 
+export const initialState: KanbanState = {
+  loading: false,
+  lists: [],
+};
+
 @Injectable()
 export class KanbanComponentStore extends ComponentStore<KanbanState> {
   constructor(
     private readonly listService: ListService,
     private readonly itemService: ItemService
   ) {
-    super({
-      lists: [],
-      loading: false,
-    });
+    super(initialState);
   }
 
   readonly lists$ = this.select((state) => state.lists);
