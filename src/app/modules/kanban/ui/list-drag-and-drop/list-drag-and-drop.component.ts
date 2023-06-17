@@ -18,6 +18,7 @@ import { GenericExpansionInputComponent } from '../generic-expansion-input/gener
 import { ICreateItemPayload } from '../../data-access/request/icreate-item-payload';
 import { KanbanComponentStore } from '../../data-access/store/kanban-component-store';
 import { IUpdateOrderItemPayload } from '../../data-access/request/iupdate-order-item.payload';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-list-drag-and-drop',
@@ -27,6 +28,7 @@ import { IUpdateOrderItemPayload } from '../../data-access/request/iupdate-order
     SharedModule,
     CardItemComponent,
     GenericExpansionInputComponent,
+    TranslocoModule,
   ],
   templateUrl: './list-drag-and-drop.component.html',
   styleUrls: ['./list-drag-and-drop.component.scss'],

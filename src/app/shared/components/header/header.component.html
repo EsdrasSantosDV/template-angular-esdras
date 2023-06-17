@@ -1,33 +1,35 @@
-<div class="top-menu">
+<ng-container *transloco="let t; read: 'kanban'">
+  <div class="top-menu">
 
-  <mat-sidenav-container >
-    <mat-sidenav #sidenav class="sidenav">
-      <mat-nav-list (click)="sidenav.close()">
+    <mat-sidenav-container >
+      <mat-sidenav #sidenav class="sidenav">
+        <mat-nav-list (click)="sidenav.close()">
 
+        </mat-nav-list>
+      </mat-sidenav>
 
-      </mat-nav-list>
-    </mat-sidenav>
+      <mat-toolbar color="primary"  class="tool-bar" >
 
-    <mat-toolbar color="primary"  class="tool-bar" >
+        <div class="content" >
+          <div class="menu">
+            <button mat-icon-button (click)="sidenav.open()" >
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
 
-      <div class="content" >
-        <div class="menu">
-          <button mat-icon-button (click)="sidenav.open()" >
-            <mat-icon>menu</mat-icon>
-          </button>
+          <div class="button-end">
+            <a mat-button routerLink="/register">
+              <mat-icon>person_add</mat-icon>
+              {{t('kanban-register')}}
+            </a>
+            <a mat-button routerLink="/login">
+              <mat-icon>account_circle</mat-icon>
+              {{t('kanban-login')}}
+            </a>
+          </div>
         </div>
+      </mat-toolbar>
+    </mat-sidenav-container>
+  </div>
 
-        <div class="button-end">
-          <a mat-button routerLink="/register">
-            <mat-icon>person_add</mat-icon>
-            Register
-          </a>
-          <a mat-button routerLink="/login">
-            <mat-icon>account_circle</mat-icon>
-            Login
-          </a>
-        </div>
-      </div>
-    </mat-toolbar>
-  </mat-sidenav-container>
-</div>
+</ng-container>

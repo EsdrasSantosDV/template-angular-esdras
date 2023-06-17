@@ -6,6 +6,7 @@ import { ListDragAndDropComponent } from '../../../ui/list-drag-and-drop/list-dr
 import { GenericExpansionInputComponent } from '../../../ui/generic-expansion-input/generic-expansion-input.component';
 import { ICreateListPayload } from '../../../data-access/request/icreate-list-payload';
 import { SharedModule } from '../../../../../shared/shared.module';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   standalone: true,
@@ -15,6 +16,7 @@ import { SharedModule } from '../../../../../shared/shared.module';
     ListDragAndDropComponent,
     GenericExpansionInputComponent,
     SharedModule,
+    TranslocoModule,
   ],
   templateUrl: './kaban-panel.component.html',
   styleUrls: ['./kaban-panel.component.scss'],
