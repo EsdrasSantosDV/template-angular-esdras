@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared.module';
 import { RouterLink } from '@angular/router';
@@ -10,5 +10,6 @@ import { TranslocoModule } from '@ngneat/transloco';
   imports: [CommonModule, SharedModule, RouterLink, TranslocoModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {}

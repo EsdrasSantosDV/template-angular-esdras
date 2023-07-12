@@ -74,10 +74,6 @@ export class ListDragAndDropComponent {
     }
   }
 
-  drop(event: CdkDragDrop<Item[]>) {
-    moveItemInArray(this.list.items, event.previousIndex, event.currentIndex);
-  }
-
   createItem($event: string) {
     const payload: ICreateItemPayload = {
       listId: this.list.id,

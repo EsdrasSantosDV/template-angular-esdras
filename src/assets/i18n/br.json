@@ -3,7 +3,8 @@
     "kanban-register": "Registrar",
     "kanban-login": "Login",
     "kanban-add-list": "Adicionar Lista",
-    "kanban-add-item": "Adicionar Item"
+    "kanban-add-item": "Adicionar Item",
+    "kanban-edit-item": "Editar Item"
   }
 
 }

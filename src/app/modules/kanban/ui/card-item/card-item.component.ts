@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Item } from '../../data-access/models/item';
 import { SharedModule } from '../../../../shared/shared.module';
+import { KanbanComponentStore } from '../../data-access/store/kanban-component-store';
 
 @Component({
   selector: 'app-card-item',
@@ -13,11 +14,13 @@ import { SharedModule } from '../../../../shared/shared.module';
 })
 export class CardItemComponent {
   @Input()
-  item: Item | null;
+  item: Item;
 
-  constructor() {
-    this.item = null;
+  constructor(private kanbanComponentStore: KanbanComponentStore) {}
+
+  editItem() {
+    this.kanbanComponentStore.editItemModal(this.item);
   }
 
-  editTask() {}
+  deleteItem() {}
 }

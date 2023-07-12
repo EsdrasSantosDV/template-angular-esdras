@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { List } from '../models/list';
 import { ListService } from '../services/list.service';
-import { concatMap, Observable, switchMap } from 'rxjs';
+import { concatMap, Observable, switchMap, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ICreateListPayload } from '../request/icreate-list-payload';
 import { ItemService } from '../services/item.service';
@@ -10,6 +10,8 @@ import { ICreateItemPayload } from '../request/icreate-item-payload';
 import { IUpdateOrderItemPayload } from '../request/iupdate-order-item.payload';
 import { Item } from '../models/item';
 import { AlertService } from '../../../../shared/modules/alert/services/alert.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditItemComponent } from '../../ui/dialog-edit-item/dialog-edit-item.component';
 
 export interface KanbanState {
   lists: List[];
@@ -26,7 +28,8 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
   constructor(
     private readonly listService: ListService,
     private readonly itemService: ItemService,
-    private readonly alertService: AlertService
+    private readonly alertService: AlertService,
+    private readonly dialog: MatDialog
   ) {
     super(initialState);
   }
@@ -149,6 +152,28 @@ export class KanbanComponentStore extends ComponentStore<KanbanState> {
           )
         )
       )
+  );
+
+  editItemModal = this.effect((modalPayload$: Observable<Item>) =>
+    modalPayload$.pipe(
+      switchMap((modalPayload) => {
+        const dialogRef = this.dialog.open(DialogEditItemComponent, {
+          width: '400px',
+          autoFocus: true,
+          data: {
+            item: modalPayload,
+          },
+        });
+
+        return dialogRef.afterClosed().pipe(
+          tap((result) => {
+            if (result) {
+              console.log(result);
+            }
+          })
+        );
+      })
+    )
   );
 
   handleError(error: HttpErrorResponse) {

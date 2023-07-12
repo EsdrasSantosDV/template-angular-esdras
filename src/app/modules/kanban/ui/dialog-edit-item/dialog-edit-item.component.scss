@@ -1,0 +1,28 @@
+@import "../../../../shared/design-system/design-system";
+.full-width {
+  width: 100%;
+  &::ng-deep.mat-form-field-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $ds-text;
+    }
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

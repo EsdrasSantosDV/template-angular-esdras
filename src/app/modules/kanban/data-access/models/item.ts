@@ -6,5 +6,4 @@ export interface Item {
   finalDate: Date | null;
   order: number;
   listId: number;
-
 }

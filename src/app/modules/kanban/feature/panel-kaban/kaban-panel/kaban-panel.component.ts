@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KanbanComponentStore } from '../../../data-access/store/kanban-component-store';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
@@ -21,6 +21,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   templateUrl: './kaban-panel.component.html',
   styleUrls: ['./kaban-panel.component.scss'],
   providers: [KanbanComponentStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KabanPanelComponent implements OnInit {
   vm$ = this.kanbanComponentStore.vm$;

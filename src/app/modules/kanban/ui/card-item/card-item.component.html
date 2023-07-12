@@ -2,15 +2,15 @@
   <ng-container> </ng-container>
   <mat-expansion-panel-header>
     <mat-panel-title class="title">
-      {{ item?.titleItem }}
+      {{ item.titleItem }}
     </mat-panel-title>
   </mat-expansion-panel-header>
 
   <div class="icons-task">
-    <button mat-icon-button (click)="editTask()">
+    <button mat-icon-button (click)="editItem()">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="deleteItem()">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

@@ -1,0 +1,78 @@
+<ng-container *transloco="let t; read: 'kanban'">
+  <div class="container">
+    <div class="header-container">
+      <span>
+        {{ t("kanban-edit-item") }}
+      </span>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <form class="form-container" [formGroup]="form">
+      {{ this.form.value | json }}
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Titulo</mat-label>
+        <input
+          type="text"
+          formControlName="titleItem"
+          matInput
+          class="text-uppercase"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição</mat-label>
+
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          formControlName="description"
+          rows="4"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline" class="full-width">
+        <mat-label>Selecione o Periodo da Tarefa</mat-label>
+        <mat-date-range-input id="date-picker" [rangePicker]="picker">
+          <input
+            matStartDate
+            formControlName="startDate"
+            placeholder="Data Inicial"
+          />
+          <input
+            matEndDate
+            formControlName="finalDate"
+            placeholder="Data Final"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matSuffix
+          data-testid="datepicker"
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </form>
+
+    <div class="form-actions-container">
+      <button
+        class="button-come-back"
+        mat-button
+        color="primary"
+        (click)="close()"
+      >
+        Cancelar
+      </button>
+
+      <button
+        mat-flat-button
+        type="button"
+        [disabled]="form.invalid"
+        (click)="formSubmit()"
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</ng-container>
